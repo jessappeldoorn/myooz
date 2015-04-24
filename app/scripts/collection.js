@@ -21,7 +21,7 @@ var updateCollectionView = function() {
   var $collection = $(".collection-container .row");
   $collection.empty();
 
-  for (var = 0; i < 33; i++) {
+  for (var i = 0; i < 33; i++) {
     var $newThumbnail = buildAlbumThumbnail();
     $collection.append($newThumbnail);
   }
