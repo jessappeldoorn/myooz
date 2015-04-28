@@ -30,17 +30,67 @@ var albumMarconi = {
   ]
 };
 
+var currentlyPlayingSong = null;
+
  var createSongRow = function(songNumber, songName, songLength) {
+
    var template =
        '<tr>'
-     + '  <td class="col-md-1">' + songNumber + '</td>'
+     + '  <td class="song-number col-md-1" data-song-number="' + songNumber + '">' + songNumber + '</td>'  // We added a song-number class to the td with the song number, so we can select the song number within each jQuery-wrapped template using $(this).find('.song-number')
      + '  <td class="col-md-9">' + songName + '</td>'
      + '  <td class="col-md-2">' + songLength + '</td>'
      + '</tr>'
      ;
  
-   return $(template);
- };
+  // Instead of returning the row immediately, we'll attach hover
+  // functionality to it first.
+   var $row = $(template);
+ 
+   // Change from a song number to play button when the song isn't playing and we hover over the row.
+  var onHover = function(event) {
+    var songNumberCell = $(this).find('.song-number');
+    var songNumber = songNumberCell.data('song-number');
+    if (songNumber !== currentlyPlayingSong) {
+      songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+    }
+  };
+ 
+   // Change from a play button to song number when the song isn't playing and we hover off the row.
+   var offHover = function(event) { // The offHover function finds that same cell and replaces the button with an empty string
+     var songNumberCell = $(this).find('.song-number');
+       var songNumber = songNumberCell.data('song-number');
+    if (songNumber !== currentlyPlayingSong) {
+      songNumberCell.html(songNumber);
+    }
+  };
+
+   // Toggle the play, pause, and song number based on the button clicked.
+   var clickHandler = function(event) {
+    var songNumber = $(this).data('song-number');
+
+     if (currentlyPlayingSong !== null) {
+       // Revert to song number for currently playing song because user started playing new song.
+       currentlyPlayingCell = $('.song-number[data-song-number="' + currentlyPlayingSong + '"]');
+       currentlyPlayingCell.html(currentlyPlayingSong);
+     }
+ 
+     if (currentlyPlayingSong !== songNumber) {
+       // Switch from Play -> Pause button to indicate new song is playing.
+       $(this).html('<a class="album-song-button"><i class="fa fa-pause"></i></a>');
+       currentlyPlayingSong = songNumber;
+     }
+     else if (currentlyPlayingSong === songNumber) {
+       // Switch from Pause -> Play button to pause currently playing song.
+       $(this).html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+       currentlyPlayingSong = null;
+     }
+   };
+
+   $row.find('.song-number').click(clickHandler);
+   $row.hover(onHover, offHover);
+   return $row;
+
+  }
  
  var changeAlbumView = function(album) {
   // Update the album title
@@ -67,8 +117,9 @@ var albumMarconi = {
     var $newRow = createSongRow(i + 1, songData.name, songData.length);
     $songList.append($newRow);
   }
-
  };
+
+
 
 // This 'if' condition is used to prevent the jQuery modifications
 // from happening on non-Album view pages.
