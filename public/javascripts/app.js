@@ -185,6 +185,11 @@ var currentlyPlayingSong = null;
 
   }
  
+ //var showOtherAlbum = function(album) {
+  //var $albumImage = $('.album-image img');
+  //$albumImage.attr('src', album.albumArtURL);
+//};
+ 
  var changeAlbumView = function(album) {
   // Update the album title
   var $albumTitle = $('.album-title');
@@ -254,6 +259,7 @@ var currentlyPlayingSong = null;
 
 };
 
+
 // This 'if' condition is used to prevent the jQuery modifications
 // from happening on non-Album view pages.
 //  - Use a regex to validate that the url has "/album" in its path.
@@ -261,9 +267,12 @@ if (document.URL.match(/\/album.html/)) {
  // Wait until the HTML is fully processed.
  $(document).ready(function() {
     changeAlbumView(albumPicasso)
-    setupSeekBars();
+    setupSeekBars()
   });
 }
+
+$('.myButton').click(changeAlbumView(albumMarconi));
+
 
 
 
@@ -296,8 +305,10 @@ if (document.URL.match(/\/album.html/)) {
 
 ;require.register("scripts/app", function(exports, require, module) {
 require("./landing");
-  require('./collection');
-    require('./album');
+require('./collection');
+require('./album');
+require("./profile");
+
 
 });
 
@@ -316,6 +327,8 @@ require("./landing");
       + '      <br/>'
       + '      X songs'
       + '      <br/>'
+      + '      X:XX Total Length'
+      + '      </br>'
       + '    </p>'
       + '  </div>'
       + '</div>';
@@ -344,7 +357,7 @@ var updateCollectionView = function() {
   var $collection = $(".collection-container .row");
   $collection.empty();
 
-  for (var i = 0; i < 33; i++) {
+  for (var i = 0; i < Math.floor(Math.random() * (100 - 25) + 25); i++) {
     var $newThumbnail = buildAlbumThumbnail();
     $collection.append($newThumbnail);
   }
@@ -440,6 +453,29 @@ if (document.URL.match(/\/collection.html/)) {
     });
 
   });
+});
+
+;require.register("scripts/profile", function(exports, require, module) {
+ var tabsContainer = ".user-profile-tabs-container"
+ var selectTabHandler = function(event) {
+   $tab = $(this);
+   $(tabsContainer + " li").removeClass('active');
+   $tab.parent().addClass('active');
+   selectedTabName = $tab.attr('href');
+   console.log(selectedTabName);
+   $(".tab-pane").addClass('hidden');
+   $(selectedTabName).removeClass('hidden');
+   event.preventDefault();
+ };
+
+ if (document.URL.match(/\/profile.html/)) {
+   $(document).ready(function() {
+     var $tabs = $(tabsContainer + " a");
+     $tabs.click(selectTabHandler);
+     $tabs[0].click();
+   });
+ }
+
 });
 
 ;

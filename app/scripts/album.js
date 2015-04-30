@@ -92,6 +92,11 @@ var currentlyPlayingSong = null;
 
   }
  
+ //var showOtherAlbum = function(album) {
+  //var $albumImage = $('.album-image img');
+  //$albumImage.attr('src', album.albumArtURL);
+//};
+ 
  var changeAlbumView = function(album) {
   // Update the album title
   var $albumTitle = $('.album-title');
@@ -161,6 +166,7 @@ var currentlyPlayingSong = null;
 
 };
 
+
 // This 'if' condition is used to prevent the jQuery modifications
 // from happening on non-Album view pages.
 //  - Use a regex to validate that the url has "/album" in its path.
@@ -168,9 +174,12 @@ if (document.URL.match(/\/album.html/)) {
  // Wait until the HTML is fully processed.
  $(document).ready(function() {
     changeAlbumView(albumPicasso)
-    setupSeekBars();
+    setupSeekBars()
   });
 }
+
+$('.myButton').click(changeAlbumView(albumMarconi));
+
 
 
 
