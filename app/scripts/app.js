@@ -13,11 +13,19 @@
    albumArtUrl: '/images/album-placeholder.png',
  
    songs: [
+<<<<<<< HEAD
       { name: 'Blue', length: 163.38, audioUrl: '/music/placeholders/blue' },
       { name: 'Green', length: 105.66 , audioUrl: '/music/placeholders/green' },
       { name: 'Red', length: 270.14, audioUrl: '/music/placeholders/red' },
       { name: 'Pink', length: 154.81, audioUrl: '/music/placeholders/pink' },
       { name: 'Magenta', length: 375.92, audioUrl: '/music/placeholders/magenta' }
+=======
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+>>>>>>> 04606b18bf5ccd5757a7db0879aca02b23a36802
      ]
  };
  
@@ -135,11 +143,19 @@
    
  }]);
  
+<<<<<<< HEAD
  blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
     var currentSoundFile = null;
     var trackIndex = function(album, song) {
       return album.songs.indexOf(song);
     };
+=======
+ blocJams.service('SongPlayer', function() {
+      var currentSoundFile = null;
+      var trackIndex = function(album, song) {
+        return album.songs.indexOf(song);
+      };
+>>>>>>> 04606b18bf5ccd5757a7db0879aca02b23a36802
 
    return {
      currentSong: null,
@@ -174,6 +190,7 @@
       var song = this.currentAlbum.songs[currentTrackIndex];
       this.setSong(this.currentAlbum, song);
      },
+<<<<<<< HEAD
        seek: function(time) {
          // Checks to make sure that a sound file is playing before seeking.
          if(currentSoundFile) {
@@ -193,17 +210,23 @@
         return $rootScope.$on('sound:timeupdate', callback);
        },
 
+=======
+>>>>>>> 04606b18bf5ccd5757a7db0879aca02b23a36802
       setSong: function(album, song) {
         if (currentSoundFile) {
           currentSoundFile.stop();
         }
         this.currentAlbum = album;
         this.currentSong = song;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 04606b18bf5ccd5757a7db0879aca02b23a36802
         currentSoundFile = new buzz.sound(song.audioUrl, {
           formats: [ "mp3" ],
           preload: true
         });
+<<<<<<< HEAD
 
         currentSoundFile.setVolume(this.volume);
 
@@ -212,6 +235,9 @@
           $rootScope.$broadcast('sound:timeupdate', this.getTime());
         });
   
+=======
+     
+>>>>>>> 04606b18bf5ccd5757a7db0879aca02b23a36802
         this.play();
       }
    };
