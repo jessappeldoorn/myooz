@@ -327,6 +327,125 @@ $('.myButton').click(changeAlbumView(albumMarconi));
 
      ]
  };
+
+  var albumRomance = {
+   name: 'World Apart',
+   artist: 'Robins Romance',
+   label: 'Galaxy',
+   year: '1999',
+   albumArtUrl: '/images/album-placeholder2.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+ var albumTime = {
+   name: 'Another Time',
+   artist: 'Whales & Winds',
+   label: 'PNW',
+   year: '2015',
+   albumArtUrl: '/images/album-placeholder3.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+  var albumEnding = {
+   name: 'Take Away',
+   artist: 'Endless',
+   label: 'CCC',
+   year: '2012',
+   albumArtUrl: '/images/album-placeholder4.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+ var albumStation = {
+   name: 'My Antlers',
+   artist: 'Dreamers',
+   label: 'In The Woods',
+   year: '2005',
+   albumArtUrl: '/images/album-placeholder5.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+  var albumWind = {
+   name: 'Sun, Fire, Wind',
+   artist: 'The Capsules',
+   label: 'Saturn',
+   year: '1980',
+   albumArtUrl: '/images/album-placeholder6.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+ var albumMoon = {
+   name: 'Moonlight',
+   artist: 'Edwin Brooks',
+   label: 'PNW',
+   year: '2014',
+   albumArtUrl: '/images/album-placeholder7.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+  var albumTrue = {
+   name: 'Love is True',
+   artist: 'Magic',
+   label: 'California',
+   year: '2013',
+   albumArtUrl: '/images/album-placeholder8.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
  
  
  blocJams = angular.module('BlocJams', ['ui.router']);
@@ -360,7 +479,7 @@ $('.myButton').click(changeAlbumView(albumMarconi));
  
  // This is a cleaner way to call the controller than crowding it on the module definition.
  blocJams.controller('Landing.controller', ['$scope', function($scope) {
-    $scope.subText = "Turn the music up!";
+    $scope.subText = "Make music your Muse.";
 
     $scope.subTextClicked = function() {
       $scope.subText += '!';
@@ -381,9 +500,16 @@ $('.myButton').click(changeAlbumView(albumMarconi));
 
   blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($scope, SongPlayer) {
    $scope.albums = [];
-     for (var i = 0; i < 33; i++) {
+     // for (var i = 0; i < 33; i++) {
        $scope.albums.push(angular.copy(albumPicasso));
-     };
+       $scope.albums.push(angular.copy(albumRomance));
+       $scope.albums.push(angular.copy(albumTime));
+       $scope.albums.push(angular.copy(albumEnding));
+       $scope.albums.push(angular.copy(albumStation));
+       $scope.albums.push(angular.copy(albumWind));
+       $scope.albums.push(angular.copy(albumMoon));
+       $scope.albums.push(angular.copy(albumTrue));
+     // };
       
      $scope.playAlbum = function(album){
        SongPlayer.setSong(album, album.songs[0]); // Targets first song in the array.
@@ -392,7 +518,7 @@ $('.myButton').click(changeAlbumView(albumMarconi));
 
  blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
 
-   $scope.album = angular.copy(albumPicasso);
+   $scope.album = angular.copy(albumRomance);
        var hoveredSong = null;
      
        $scope.onHoverSong = function(song) {
