@@ -1,12 +1,28 @@
-  .hero-content {
-    background-color: #2F1D57;
+   .jumbotron {
+    background: url("/images/art1.png") no-repeat center center;
+
+    background-size: 100%;
     padding: 100px 0;
-    background: #2F1D57;
+    height: 700px;
+
+    .animated {
+      animation-duration: 2s;
+    }
+
+  // #hero-content {
+  //   background-image: url("/images/art1.png");
+  //   background-size: cover;
+  //   padding: 100px 0;
+  //   height: 700px;
+  // }
   }
+
+
+
  
-  .hero-content h1 {
+  #hero-content h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 70px;
+    font-size: 100px;
     margin-bottom: 50px;
     font-weight: 300;
   }
@@ -25,4 +41,60 @@
  
   .selling-points .point p {
     font-size: 14px;
+    text-align: center;
   }
+
+  img {
+    border: 3px;
+  }
+
+  // .animated:hover {
+  //   transform: rotateY(-180deg);
+  // }
+
+  .card {
+  position: relative;
+  // float: left;
+  padding-bottom: 400px;
+  padding-right: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.card__front,
+.card__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+}
+
+.card__front,
+.card__back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.card__back {
+  background: #ffffff;
+  opacity: .3;
+  height: 400px;
+  width: 400px;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card.effect__hover:hover .card__front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card.effect__hover:hover .card__back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+

@@ -14,13 +14,22 @@
     font-family: 'Open Sans';
     color: white;
     min-height: 100%;
-    background: -webkit-radial-gradient(  #2b1339, #380c77);
-    background: radial-gradient(   #2b1339, #380c77);
+
+  background: -webkit-linear-gradient(180deg, #000000 10%, #53346D 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(180deg, #000000 10%, #53346D 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(180deg, #000000 10%, #53346D 90%); /* IE10 */
+  background:      -o-linear-gradient(180deg, #000000 10%, #53346D 90%); /* Opera 11.10+ */
+  background:         linear-gradient(180deg, #000000 10%, #53346D 90%); /* W3C */
+        
+        
+        
+    // background: -webkit-radial-gradient(  #2b1339, #380c77);
+    // background: radial-gradient(   #2b1339, #380c77);
     padding-bottom: 150px;
   }
 
   body.landing {
-    background: #5B5579;
+    background-color: #403D3D;
     padding-bottom: 0;
   }
 
@@ -28,10 +37,10 @@
  //
  
   .player-header-nav {
-   background-color: rgba(123, 70, 163, .9);
+   background-color: #000000;
      .navbar-nav {
        a {
-        line-height: 45px;
+        line-height: 70px;
         color: white;
         text-transform: uppercase;
         font-weight: 700;
@@ -46,6 +55,11 @@
   body.landing .navbar {
     margin-bottom: 0;
   }
+
+  .navbar {
+    margin: 0px;
+  }
+
 
 
 

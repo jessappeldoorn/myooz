@@ -8,6 +8,7 @@
       <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+      <link rel="stylesheet" href="/stylesheets/animate.min.css">
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
@@ -18,18 +19,27 @@
       </script>
    </head>
    <body>
-     <nav class="player-header-nav navbar">
-       <div class="container">
-         <div class='navbar-header'> <!-- Nav Bar -->
-             <a ui-sref='landing' class='logo navbar-left'>
-             <img src="/images/blocjams.png">
-           </a>
-         </div>
-           <ul class="nav navbar-nav navbar-right">
+
+    <nav class="player-header-nav navbar navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+             <a ui-sref='collection'>Library</a>
+          </button>
+            <a ui-sref='landing' class='logo navbar-left'>
+             <img src="/images/splatter.png">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
              <li><a ui-sref='collection'>Library</a></li>
-           </ul>
-       </div>
-     </nav>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
      <!-- Render templates here -->
      <div ui-view></div>

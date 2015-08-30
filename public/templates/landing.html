@@ -1,33 +1,55 @@
+<div class="animated fadeInUp">
+  <div class="jumbotron">
+    <div class="container-fluid">
 
- <div class='hero-content'> <!-- Hero content -->
-   <div class='container'>
-     <h1> myooz </h1>
-     <h3 ng_click="subTextClicked()"> {{ subText }} </h3>
+    </div>
+  </div>
+</div>
+ 
+<div class="container">
+  <div class='row'>
+    <div class='point col-md-4 col-md-offset-4'>
+       <div class="glyphicon glyphicon-menu-down"><div>
+     </div>
    </div>
- </div>
+</div>
  
  <div class='selling-points container'> <!-- selling points -->
    <div class='row'>
      <div class='point col-md-4'>
-       <h5> Choose your music </h5>
+       <h5 class="animated fadeInUpBig"> Choose your music </h5>
        <p> The world is full of music, why should you have to listen to music that someone else chose? </p>
      </div>
      <div class='point col-md-4'>
-       <h5> Unlimited, streaming, ad-free </h5>
+       <h5 class="animated fadeInUpBig"> Unlimited, streaming, ad-free </h5>
        <p> No arbitrary limits. No distractions </p>
      </div> 
      <div class='point col-md-4'>
-       <h5>Mobile enabled</h5>
+       <h5 class="animated fadeInUpBig">Mobile enabled</h5>
        <p> Listen to your music on the go. This streaming service is available on all mobile platforms</p>
      </div>
    </div>
  </div>
  
- <div class="landing-album-list container">
-   <div class="row">
-     <div class="col-md-4" ng-repeat="albumURL in albumURLs">
-       <img  ng-src="{{albumURL}}">
-     </div>
-   </div>
- </div>
+
+  <div class="landing-album-list container-">
+    <div class="row" >
+      <div class="col-md-4" ng-repeat="albumURL in albumURLs" >
+
+        <div class="card effect__hover">
+          <div class="card__front">
+            <img ng-src="{{albumURL}}">
+          </div>
+          <div class="card__back">
+            <h2>{{ album.artist }} </h2>
+            <h3> {{ album.name }} </h3>
+          </div>
+        </div><!-- /card -->
+
+      </div>
+    </div>
+  </div>
+
+
+
 

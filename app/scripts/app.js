@@ -140,7 +140,74 @@
 
      ]
  };
+
+  var albumAurora = {
+   name: 'Rainbows',
+   artist: 'Dawn of December',
+   label: 'Woods',
+   year: '2014',
+   albumArtUrl: '/images/album-placeholder9.png',
  
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+  var albumStar = {
+   name: 'On Tour',
+   artist: 'Black Rock',
+   label: 'Alternative',
+   year: '1015',
+   albumArtUrl: '/images/album-placeholder10.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+ var albumDesert = {
+   name: 'Desert',
+   artist: 'Lenny Watson',
+   label: 'PNW',
+   year: '2012',
+   albumArtUrl: '/images/album-placeholder11.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
+
+  var albumRed = {
+   name: 'Red Road',
+   artist: 'Say Goodbye',
+   label: 'Monkey',
+   year: '2012',
+   albumArtUrl: '/images/album-placeholder12.png',
+ 
+   songs: [
+       { name: 'Blue', length: '4:26', audioUrl: '/music/placeholders/blue' },
+       { name: 'Green', length: '3:14', audioUrl: '/music/placeholders/green' },
+       { name: 'Red', length: '5:01', audioUrl: '/music/placeholders/red' },
+       { name: 'Pink', length: '3:21', audioUrl: '/music/placeholders/pink' },
+       { name: 'Magenta', length: '2:15', audioUrl: '/music/placeholders/magenta' }
+
+     ]
+ };
  
  blocJams = angular.module('BlocJams', ['ui.router']);
 
@@ -173,7 +240,7 @@
  
  // This is a cleaner way to call the controller than crowding it on the module definition.
  blocJams.controller('Landing.controller', ['$scope', function($scope) {
-    $scope.subText = "Make music your Muse.";
+    $scope.subText = "Let your music inspire you.";
 
     $scope.subTextClicked = function() {
       $scope.subText += '!';
@@ -190,6 +257,18 @@
      '/images/album-placeholders/album-8.jpg',
      '/images/album-placeholders/album-9.jpg',
    ];
+
+      $scope.albums = [];
+     // for (var i = 0; i < 33; i++) {
+       $scope.albums.push(angular.copy(albumPicasso));
+       $scope.albums.push(angular.copy(albumRomance));
+       $scope.albums.push(angular.copy(albumTime));
+       $scope.albums.push(angular.copy(albumEnding));
+       $scope.albums.push(angular.copy(albumStation));
+       $scope.albums.push(angular.copy(albumWind));
+       $scope.albums.push(angular.copy(albumMoon));
+       $scope.albums.push(angular.copy(albumTrue));
+       $scope.albums.push(angular.copy(albumAurora));
  }]);
 
   blocJams.controller('Collection.controller', ['$scope','SongPlayer', function($scope, SongPlayer) {
@@ -203,6 +282,22 @@
        $scope.albums.push(angular.copy(albumWind));
        $scope.albums.push(angular.copy(albumMoon));
        $scope.albums.push(angular.copy(albumTrue));
+       $scope.albums.push(angular.copy(albumAurora));
+       $scope.albums.push(angular.copy(albumStar));
+       $scope.albums.push(angular.copy(albumDesert));
+       $scope.albums.push(angular.copy(albumRed));
+       $scope.albums.push(angular.copy(albumWind));
+       $scope.albums.push(angular.copy(albumStation));
+       $scope.albums.push(angular.copy(albumEnding));
+       $scope.albums.push(angular.copy(albumTime));
+       $scope.albums.push(angular.copy(albumRomance));
+       $scope.albums.push(angular.copy(albumPicasso));
+       $scope.albums.push(angular.copy(albumRed));
+       $scope.albums.push(angular.copy(albumDesert));
+       $scope.albums.push(angular.copy(albumStar));
+       $scope.albums.push(angular.copy(albumAurora));
+       $scope.albums.push(angular.copy(albumTrue));
+       $scope.albums.push(angular.copy(albumMoon));
      // };
       
      $scope.playAlbum = function(album){
@@ -211,6 +306,8 @@
  }]);
 
  blocJams.controller('Album.controller', ['$scope', 'SongPlayer', function($scope, SongPlayer) {
+
+
 
    $scope.album = angular.copy(albumRomance);
        var hoveredSong = null;
